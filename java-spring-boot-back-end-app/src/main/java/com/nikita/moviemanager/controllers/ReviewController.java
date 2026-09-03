@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+// Controller for Review API endpoints
 @RestController
 @RequestMapping("reviews")
 public class ReviewController {
@@ -15,31 +16,22 @@ public class ReviewController {
     @Autowired
     private ReviewRepository reviewRepository;
 
+    // Get all reviews
     @GetMapping
     public List<Review> getAllReviews() {
         return reviewRepository.findAll();
     }
 
+    // Get a review by ID
     @GetMapping("{id}")
     public Optional<Review> findById(@PathVariable int id) {
         return reviewRepository.findById(id);
     }
 
+    // Add a new review
     @PostMapping
     public Review addReview(@RequestBody Review review) {
         reviewRepository.save(review);
         return review;
-    }
-
-    @PutMapping("{id}")
-    public Review updateReview(@PathVariable int id, @RequestBody Review review) {
-        review.setId(id);
-        reviewRepository.save(review);
-        return review;
-    }
-
-    @DeleteMapping("{id}")
-    public void deleteReview(@PathVariable int id) {
-        reviewRepository.deleteById(id);
     }
 }
