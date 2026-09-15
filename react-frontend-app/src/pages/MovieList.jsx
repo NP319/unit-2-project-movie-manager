@@ -33,12 +33,25 @@ function MovieList() {
     releaseYear: ''
   })
 
+  // State to store the movie being edited
+  const [editingMovie, setEditingMovie] = useState(null)
+
   // Function to update the movie state when an input changes
   function handleChange(event) {
 
     // Update the field that was changed
     setMovie({
       ...movie,
+      [event.target.name]: event.target.value
+    })
+  }
+
+  // Function to update the movie being edited when an input changes
+  function handleEditChange(event) {
+
+    // Update the field that was changed
+    setEditingMovie({
+      ...editingMovie,
       [event.target.name]: event.target.value
     })
   }
@@ -51,6 +64,7 @@ function MovieList() {
 
     // Send the new movie to the Spring Boot API
     await fetch('http://localhost:8080/movies', {
+
       // Use POST to create a new movie
       method: 'POST',
 
@@ -73,6 +87,48 @@ function MovieList() {
 
       {/* Page title */}
       <h1>Movies</h1>
+
+      {/* Edit movie form */}
+      {editingMovie && (
+        <form>
+          <h2>Edit Movie</h2>
+
+          {/* Movie title input */}
+          <input
+            name="title"
+            value={editingMovie.title}
+            onChange={handleEditChange}
+            placeholder="Title"
+          />
+
+          {/* Movie genre input */}
+          <input
+            name="genre"
+            value={editingMovie.genre}
+            onChange={handleEditChange}
+            placeholder="Genre"
+          />
+
+          {/* Movie director input */}
+          <input
+            name="director"
+            value={editingMovie.director}
+            onChange={handleEditChange}
+            placeholder="Director"
+          />
+
+          {/* Movie release year input */}
+          <input
+            name="releaseYear"
+            value={editingMovie.releaseYear}
+            onChange={handleEditChange}
+            placeholder="Release Year"
+          />
+
+          {/* Button for submitting the movie update */}
+          <button type="submit">Update Movie</button>
+        </form>
+      )}
 
       {/* Form for adding a new movie */}
       <form onSubmit={addMovie}>
@@ -111,6 +167,7 @@ function MovieList() {
 
         {/* Submit button for adding the movie */}
         <button type="submit">Add Movie</button>
+
       </form>
 
       {/* Display each movie from the movies array */}
@@ -130,6 +187,11 @@ function MovieList() {
 
           {/* Display movie release year */}
           <p>Release Year: {movie.releaseYear}</p>
+
+          {/* Edit button for updating the movie */}
+          <button onClick={() => setEditingMovie(movie)}>
+            Edit
+          </button>
 
         </div>
       ))}
