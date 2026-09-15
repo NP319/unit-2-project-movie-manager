@@ -83,7 +83,7 @@ function MovieList() {
 
 
   // Function to update an existing movie
-async function updateMovie(event) {
+  async function updateMovie(event) {
 
   // Prevent the form from refreshing the page
   event.preventDefault()
@@ -109,6 +109,22 @@ async function updateMovie(event) {
   // Close the Edit Movie form
   setEditingMovie(null)
 }
+
+  // Function to delete an existing movie
+  async function deleteMovie(id) {
+
+  // Send a DELETE request to the Movie API
+  await fetch(`http://localhost:8080/movies/${id}`, {
+
+    // Use DELETE to remove the movie
+    method: 'DELETE'
+  })
+
+  // Get the updated movie list after deleting the movie
+  getMovies()
+}
+
+
 
   // Display the Movie List page
   return (
@@ -220,6 +236,11 @@ async function updateMovie(event) {
           {/* Edit button for updating the movie */}
           <button onClick={() => setEditingMovie(movie)}>
             Edit
+          </button>
+
+          {/* Delete button for removing the movie */}
+          <button onClick={() => deleteMovie(movie.id)}>
+            Delete
           </button>
 
         </div>
