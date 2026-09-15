@@ -81,6 +81,35 @@ function MovieList() {
     getMovies()
   }
 
+
+  // Function to update an existing movie
+async function updateMovie(event) {
+
+  // Prevent the form from refreshing the page
+  event.preventDefault()
+
+  // Send the updated movie to the Spring Boot API
+  await fetch(`http://localhost:8080/movies/${editingMovie.id}`, {
+
+    // Use PUT to update the movie
+    method: 'PUT',
+
+    // Tell the API that the data is JSON
+    headers: {
+      'Content-Type': 'application/json'
+    },
+
+    // Convert the edited movie into JSON
+    body: JSON.stringify(editingMovie)
+  })
+
+  // Get the updated movie list
+  getMovies()
+
+  // Close the Edit Movie form
+  setEditingMovie(null)
+}
+
   // Display the Movie List page
   return (
     <div>
@@ -90,7 +119,7 @@ function MovieList() {
 
       {/* Edit movie form */}
       {editingMovie && (
-        <form>
+        <form onSubmit={updateMovie}>
           <h2>Edit Movie</h2>
 
           {/* Movie title input */}
