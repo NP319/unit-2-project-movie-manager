@@ -4,6 +4,9 @@ import React, { useEffect, useState } from 'react'
 // Import useParams to get the movie ID from the URL
 import { useParams } from 'react-router'
 
+// Import the reusable ReviewItem component
+import ReviewItem from '../components/ReviewItem'
+
 // Movie Detail page component
 function MovieDetail() {
 
