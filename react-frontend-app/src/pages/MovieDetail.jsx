@@ -48,6 +48,27 @@ function MovieDetail() {
     setReviews(movieReviews)
 }
 
+    // Function to add a new review
+    async function addReview(review) {
+
+      // Send the new review to the Review API
+      await fetch('http://localhost:8080/reviews', {
+
+      // Use POST to create the review
+      method: 'POST',
+
+      // Tell the API that the data is JSON
+      headers: {
+        'Content-Type': 'application/json'
+      },
+
+      // Convert the review object into JSON
+      body: JSON.stringify(review)
+    })
+
+    // Get the updated reviews after adding the review
+    getReviews()
+  }
   // Get the movie and reviews when the component loads
   useEffect(() => {
     getMovie()
