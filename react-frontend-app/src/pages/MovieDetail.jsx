@@ -75,6 +75,16 @@ function MovieDetail() {
       {/* Movie release year */}
       <p>Release Year: {movie.releaseYear}</p>
 
+            {/* Display reviews for this movie */}
+      <h2>Reviews</h2>
+
+      {reviews.map(review => (
+        <ReviewItem
+          key={review.id}
+          review={review}
+        />
+      ))}
+
     </div>
   )
 }
