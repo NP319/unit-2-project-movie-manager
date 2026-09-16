@@ -1,6 +1,9 @@
 // Import React hooks for managing state and running code when the component loads
 import React, { useEffect, useState } from 'react'
 
+// Import Link to navigate to the Movie Detail page
+import { Link } from 'react-router'
+
 // Movie List page component
 function MovieList() {
 
@@ -81,50 +84,47 @@ function MovieList() {
     getMovies()
   }
 
-
   // Function to update an existing movie
   async function updateMovie(event) {
 
-  // Prevent the form from refreshing the page
-  event.preventDefault()
+    // Prevent the form from refreshing the page
+    event.preventDefault()
 
-  // Send the updated movie to the Spring Boot API
-  await fetch(`http://localhost:8080/movies/${editingMovie.id}`, {
+    // Send the updated movie to the Spring Boot API
+    await fetch(`http://localhost:8080/movies/${editingMovie.id}`, {
 
-    // Use PUT to update the movie
-    method: 'PUT',
+      // Use PUT to update the movie
+      method: 'PUT',
 
-    // Tell the API that the data is JSON
-    headers: {
-      'Content-Type': 'application/json'
-    },
+      // Tell the API that the data is JSON
+      headers: {
+        'Content-Type': 'application/json'
+      },
 
-    // Convert the edited movie into JSON
-    body: JSON.stringify(editingMovie)
-  })
+      // Convert the edited movie into JSON
+      body: JSON.stringify(editingMovie)
+    })
 
-  // Get the updated movie list
-  getMovies()
+    // Get the updated movie list
+    getMovies()
 
-  // Close the Edit Movie form
-  setEditingMovie(null)
-}
+    // Close the Edit Movie form
+    setEditingMovie(null)
+  }
 
   // Function to delete an existing movie
   async function deleteMovie(id) {
 
-  // Send a DELETE request to the Movie API
-  await fetch(`http://localhost:8080/movies/${id}`, {
+    // Send a DELETE request to the Movie API
+    await fetch(`http://localhost:8080/movies/${id}`, {
 
-    // Use DELETE to remove the movie
-    method: 'DELETE'
-  })
+      // Use DELETE to remove the movie
+      method: 'DELETE'
+    })
 
-  // Get the updated movie list after deleting the movie
-  getMovies()
-}
-
-
+    // Get the updated movie list after deleting the movie
+    getMovies()
+  }
 
   // Display the Movie List page
   return (
@@ -232,6 +232,11 @@ function MovieList() {
 
           {/* Display movie release year */}
           <p>Release Year: {movie.releaseYear}</p>
+
+          {/* Link to the Movie Detail page for this movie */}
+          <Link to={`/movies/${movie.id}`}>
+            View Details
+          </Link>
 
           {/* Edit button for updating the movie */}
           <button onClick={() => setEditingMovie(movie)}>
