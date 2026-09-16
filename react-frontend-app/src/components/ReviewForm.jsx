@@ -10,6 +10,12 @@ function ReviewForm({ movieId, addReview }) {
     comment: ''
   })
 
+  // State to store validation messages
+  const [error, setError] = useState('')
+
+  // State to store the success message
+  const [success, setSuccess] = useState('')
+
   // Function to update the review state when an input changes
   function handleChange(event) {
 
@@ -18,6 +24,10 @@ function ReviewForm({ movieId, addReview }) {
       ...review,
       [event.target.name]: event.target.value
     })
+
+    // Clear old messages when the user changes an input
+    setError('')
+    setSuccess('')
   }
 
   // Function to submit a new review
@@ -26,14 +36,35 @@ function ReviewForm({ movieId, addReview }) {
     // Prevent the form from refreshing the page
     event.preventDefault()
 
+    // Convert the rating from text to a number
+    let rating = Number(review.rating)
+
+    // Check that the rating is between 1 and 5
+    if (rating < 1 || rating > 5 || review.rating === '') {
+      setError('Rating must be between 1 and 5.')
+      return
+    }
+
+    // Check that the comment is not empty
+    if (review.comment.trim() === '') {
+      setError('Please enter a comment.')
+      return
+    }
+
+    // Clear any previous error message
+    setError('')
+
     // Send the review information to the parent component
-    addReview({
-      rating: review.rating,
+    await addReview({
+      rating: rating,
       comment: review.comment,
       movie: {
         id: movieId
       }
     })
+
+    // Show a success message after the review is submitted
+    setSuccess('Review added successfully!')
 
     // Clear the form after submitting
     setReview({
@@ -50,28 +81,44 @@ function ReviewForm({ movieId, addReview }) {
       <h2>Add a Review</h2>
 
       {/* Rating input */}
-      <input
-        type="number"
-        name="rating"
-        value={review.rating}
-        onChange={handleChange}
-        placeholder="Rating (1-5)"
-        min="1"
-        max="5"
-      />
+      <label>
+        Rating:
+        <input
+          type="number"
+          name="rating"
+          value={review.rating}
+          onChange={handleChange}
+          placeholder="Enter rating"
+          min="1"
+          max="5"
+        />
+      </label>
+
+      {/* Show rating or form validation error */}
+      {error && (
+        <p>{error}</p>
+      )}
 
       {/* Comment input */}
-      <textarea
-        name="comment"
-        value={review.comment}
-        onChange={handleChange}
-        placeholder="Write your review"
-      />
+      <label>
+        Comment:
+        <textarea
+          name="comment"
+          value={review.comment}
+          onChange={handleChange}
+          placeholder="Write your review"
+        />
+      </label>
 
       {/* Submit button */}
       <button type="submit">
         Add Review
       </button>
+
+      {/* Show success message after a review is added */}
+      {success && (
+        <p>{success}</p>
+      )}
 
     </form>
   )
