@@ -13,6 +13,9 @@ function MovieDetail() {
   // State to store the movie information
   const [movie, setMovie] = useState(null)
 
+  // State to store reviews for the movie
+  const [reviews, setReviews] = useState([])
+
   // Function to get one movie from the Spring Boot API
   async function getMovie() {
 
@@ -26,9 +29,26 @@ function MovieDetail() {
     setMovie(data)
   }
 
-  // Get the movie when the component loads
+  // Function to get reviews for the movie
+  async function getReviews() {
+
+    // Send a GET request for all reviews
+    let response = await fetch('http://localhost:8080/reviews')
+
+    // Convert the response into JSON data
+    let data = await response.json()
+
+    // Get only the reviews for this movie
+    let movieReviews = data.filter(review => review.movie?.id === Number(id))
+
+    // Store the reviews in state
+    setReviews(movieReviews)
+}
+
+  // Get the movie and reviews when the component loads
   useEffect(() => {
     getMovie()
+    getReviews()
   }, [id])
 
   // Display a message while the movie is loading
