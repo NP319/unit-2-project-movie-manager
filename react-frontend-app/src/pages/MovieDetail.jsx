@@ -51,11 +51,11 @@ function MovieDetail() {
     setReviews(movieReviews)
 }
 
-    // Function to add a new review
-    async function addReview(review) {
+  // Function to add a new review
+  async function addReview(review) {
 
       // Send the new review to the Review API
-      await fetch('http://localhost:8080/reviews', {
+      let response = await fetch('http://localhost:8080/reviews', {
 
       // Use POST to create the review
       method: 'POST',
@@ -69,9 +69,29 @@ function MovieDetail() {
       body: JSON.stringify(review)
     })
 
-    // Get the updated reviews after adding the review
-    getReviews()
-  }
+      // Check if the review was added successfully
+      if (!response.ok) {
+        throw new Error('Review could not be added')
+      }
+
+      // Get the updated reviews after adding the review
+      await getReviews()
+    }
+
+    // Function to delete an existing review
+    async function deleteReview(id) {
+
+      // Send a DELETE request to the Review API
+      await fetch(`http://localhost:8080/reviews/${id}`, {
+
+      // Use DELETE to remove the review
+      method: 'DELETE'
+    })
+
+    // Get the updated reviews after deleting the review
+    await getReviews()
+  } 
+
   // Get the movie and reviews when the component loads
   useEffect(() => {
     getMovie()
@@ -106,12 +126,13 @@ function MovieDetail() {
         <ReviewItem
           key={review.id}
           review={review}
+          deleteReview={deleteReview}
         />
       ))}
 
             {/* Review form for this movie */}
         <ReviewForm
-          movieId={movie.id}
+          movie={movie}
           addReview={addReview}
         />
     </div>
