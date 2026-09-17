@@ -9,3 +9,27 @@ body {
 #root {
   min-height: 100vh;
 }
+
+/* Header styling */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Navigation styling */
+.navigation {
+  display: flex;
+  gap: 20px;
+}
+
+/* Navigation link styling */
+.navigation a {
+  text-decoration: none;
+}
+
+/* Navigation link hover effect */
+.navigation a:hover {
+  text-decoration: underline;
+}
