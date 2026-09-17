@@ -41,7 +41,7 @@ body {
   align-items: center;
   text-align: center;
   padding: 20px;
-  min-height: calc(100vh - 140px);
+  height: 500px;
   box-sizing: border-box;
   background-image: url('./assets/vintage-film.png');
   background-size: cover;
@@ -65,4 +65,18 @@ body {
 /* View Movies hover effect */
 .view-movies-link:hover {
   text-decoration: underline;
+}
+
+/* Adjust Home page for smaller screens */
+@media (max-width: 1024px) {
+  .home-section {
+    height: 450px;
+  }
+}
+
+/* Adjust Home page for mobile screens */
+@media (max-width: 600px) {
+  .home-section {
+    height: 350px;
+  }
 }
