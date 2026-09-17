@@ -4,10 +4,13 @@ import { Link } from 'react-router'
 // Header component
 function Header() {
   return (
-    <header>
+    <header className="header">
+
+      {/* Website title */}
+      <h1>Movie Manager</h1>
 
       {/* Navigation for the website */}
-      <nav>
+      <nav className="navigation">
         <Link to="/">
           Home
         </Link>

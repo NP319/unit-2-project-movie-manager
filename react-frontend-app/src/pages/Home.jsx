@@ -10,7 +10,7 @@ function Home() {
     <main>
 
       {/* Welcome section */}
-      <section>
+      <section className="home-section">
         <img
           src={hero}
           alt="Movies"
@@ -23,7 +23,7 @@ function Home() {
         </p>
 
         {/* Link to the Movie List page */}
-        <Link to="/movies">
+        <Link className="view-movies-link" to="/movies">
           View Movies
         </Link>
       </section>
