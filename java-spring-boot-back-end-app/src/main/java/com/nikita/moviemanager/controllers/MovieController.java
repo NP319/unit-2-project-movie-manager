@@ -3,6 +3,7 @@ package com.nikita.moviemanager.controllers;
 import com.nikita.moviemanager.models.Movie;
 import com.nikita.moviemanager.repositories.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.Optional;
 
 //controller for movie API endpoints
 @RestController
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("movies")
 public class MovieController {
 

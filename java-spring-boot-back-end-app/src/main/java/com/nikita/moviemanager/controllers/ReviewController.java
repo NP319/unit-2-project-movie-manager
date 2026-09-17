@@ -10,6 +10,7 @@ import java.util.Optional;
 
 // Controller for Review API endpoints
 @RestController
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("reviews")
 public class ReviewController {
 
@@ -33,5 +34,11 @@ public class ReviewController {
     public Review addReview(@RequestBody Review review) {
         reviewRepository.save(review);
         return review;
+    }
+
+    // Delete an existing review
+    @DeleteMapping("{id}")
+    public void deleteReview(@PathVariable int id) {
+        reviewRepository.deleteById(id);
     }
 }
