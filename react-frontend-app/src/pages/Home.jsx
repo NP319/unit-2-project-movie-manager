@@ -1,7 +1,36 @@
+// Import Link to navigate to the Movie List page
+import { Link } from 'react-router'
+
+// Import the movie image
+import hero from '../assets/hero.png'
+
+// Home page component
 function Home() {
   return (
-    <h1>Movie Manager</h1>
+    <main>
+
+      {/* Welcome section */}
+      <section>
+        <img
+          src={hero}
+          alt="Movies"
+        />
+
+        <h1>Movie Manager</h1>
+
+        <p>
+          Manage your favorite movies and share your reviews.
+        </p>
+
+        {/* Link to the Movie List page */}
+        <Link to="/movies">
+          View Movies
+        </Link>
+      </section>
+
+    </main>
   )
 }
 
+// Export Home component
 export default Home
