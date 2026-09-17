@@ -7,6 +7,9 @@ import { useParams } from 'react-router'
 // Import the reusable ReviewItem component
 import ReviewItem from '../components/ReviewItem'
 
+// Import the ReviewForm component
+import ReviewForm from '../components/ReviewForm'
+
 // Movie Detail page component
 function MovieDetail() {
 
