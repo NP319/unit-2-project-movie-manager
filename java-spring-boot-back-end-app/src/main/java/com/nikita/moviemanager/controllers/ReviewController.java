@@ -10,6 +10,7 @@ import java.util.Optional;
 
 // Controller for Review API endpoints
 @RestController
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("reviews")
 public class ReviewController {
 
