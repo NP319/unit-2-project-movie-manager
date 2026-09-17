@@ -109,6 +109,11 @@ function MovieDetail() {
         />
       ))}
 
+            {/* Review form for this movie */}
+        <ReviewForm
+          movieId={movie.id}
+          addReview={addReview}
+        />
     </div>
   )
 }
