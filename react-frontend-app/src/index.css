@@ -33,3 +33,36 @@ body {
 .navigation a:hover {
   text-decoration: underline;
 }
+
+/* Home page layout */
+.home-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  min-height: calc(100vh - 140px);
+  box-sizing: border-box;
+  background-image: url('./assets/vintage-film.png');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Home page image */
+.home-image {
+  width: 250px;
+  max-width: 100%;
+}
+
+/* View Movies link */
+.view-movies-link {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+/* View Movies hover effect */
+.view-movies-link:hover {
+  text-decoration: underline;
+}

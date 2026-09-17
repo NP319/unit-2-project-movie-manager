@@ -1,8 +1,7 @@
 // Import Link to navigate to the Movie List page
 import { Link } from 'react-router'
 
-// Import the movie image
-import hero from '../assets/hero.png'
+
 
 // Home page component
 function Home() {
@@ -11,11 +10,7 @@ function Home() {
 
       {/* Welcome section */}
       <section className="home-section">
-        <img
-          src={hero}
-          alt="Movies"
-        />
-
+        
         <h1>Movie Manager</h1>
 
         <p>
