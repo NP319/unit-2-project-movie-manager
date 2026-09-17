@@ -1,10 +1,9 @@
-// Import the Header component
-import Header from './components/Header'
-
+import Header from './components/Header'  // Import the Header component
 import { BrowserRouter, Routes, Route } from 'react-router'
 import Home from './pages/Home'
 import MovieList from './pages/MovieList'
 import MovieDetail from './pages/MovieDetail'
+import Footer from './components/Footer'  // Import the Footer component
 
 function App() {
   return (
@@ -18,6 +17,9 @@ function App() {
         <Route path="/movies" element={<MovieList />} />
         <Route path="/movies/:id" element={<MovieDetail />} />
       </Routes>
+
+      {/* Website footer */}
+      <Footer />
 
     </BrowserRouter>
   )
