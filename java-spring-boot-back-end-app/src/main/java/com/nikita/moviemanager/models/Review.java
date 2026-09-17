@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 
+// Represents a review for a movie
 @Entity
 public class Review {
 
@@ -15,6 +16,7 @@ public class Review {
     private int rating;
     private String comment;
 
+    // Connects each review to one movie
     @ManyToOne
     private Movie movie;
 

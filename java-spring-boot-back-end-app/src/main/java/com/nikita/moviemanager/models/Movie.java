@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
+// Represents a movie in the database
 @Entity
 public class Movie {
 
@@ -15,10 +16,11 @@ public class Movie {
     private String genre;
     private String director;
     private int releaseYear;
-
+    
     public Movie() {
     }
 
+    // Constructor for creating a movie with its information
     public Movie(String title, String genre, String director, int releaseYear) {
         this.title = title;
         this.genre = genre;
