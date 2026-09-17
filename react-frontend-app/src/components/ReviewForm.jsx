@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 
 // Review form component
-function ReviewForm({ movieId, addReview }) {
+function ReviewForm({ movie, addReview }) {
 
   // State to store the review information
   const [review, setReview] = useState({
@@ -58,9 +58,7 @@ function ReviewForm({ movieId, addReview }) {
     await addReview({
       rating: rating,
       comment: review.comment,
-      movie: {
-        id: movieId
-      }
+      movie: movie   
     })
 
     // Show a success message after the review is submitted
