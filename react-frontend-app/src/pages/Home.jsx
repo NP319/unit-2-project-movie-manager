@@ -22,10 +22,10 @@ function Home() {
       {/* Home page content */}
       <div className="home-content">
 
-        <h1>Movie Manager</h1>
+        <h1>Your Movies. Your collection.</h1>
 
         <p>
-          Manage your favorite movies and share your reviews.
+          Keep track of the movies you love, discover your favorites,and share your thoughts.
         </p>
 
       {/* Link to the Movie List page */}

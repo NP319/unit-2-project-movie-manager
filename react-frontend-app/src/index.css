@@ -1,11 +1,13 @@
 /* Global page styling */
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
+  background-color: #fff3c4;
 }
 
 /* Main React container */
+
 #root {
   min-height: 100vh;
   display: flex;
@@ -13,41 +15,46 @@ body {
 }
 
 /* Header styling */
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 20px;
+  padding: 12px 20px;
   background-color: #fff3c4;
   color: #b22222;
 }
 
-.header h1{
-    color: #b22222;
+.header h1 {
+  margin: 0;
+  color: #b22222;
 }
 
 /* Navigation styling */
+
 .navigation {
   display: flex;
   gap: 20px;
 }
 
 .navigation a {
-    text-decoration: none;
-    color: #b22222;
+  text-decoration: none;
+  color: #b22222;
 }
 
-.navigation a:hover{
-    text-decoration: underline;
+.navigation a:hover {
+  text-decoration: underline;
 }
 
 /* Main page content */
+
 main {
   flex: 1;
   display: flex;
 }
 
 /* Home page layout */
+
 .home-section {
   flex: 1;
   position: relative;
@@ -61,6 +68,7 @@ main {
 }
 
 /* Home page image */
+
 .home-image {
   position: absolute;
   width: 100%;
@@ -71,12 +79,14 @@ main {
 }
 
 /* Home page content */
+
 .home-content {
   position: relative;
   z-index: 1;
 }
 
 /* Home page text */
+
 .home-section h1,
 .home-section p {
   color: white;
@@ -84,6 +94,7 @@ main {
 }
 
 /* View Movies link */
+
 .view-movies-link {
   display: inline-block;
   margin-top: 20px;
@@ -94,6 +105,7 @@ main {
 }
 
 /* View Movies hover effect */
+
 .view-movies-link:hover {
   text-decoration: underline;
 }
@@ -101,49 +113,55 @@ main {
 /* ABOUT PAGE */
 
 /* About page layout */
+
 .about-card {
   flex: 1;
   background-color: #fff3c4;
   color: #b22222;
-  padding: 25px 40px;
+  padding: 15px 30px;
   box-sizing: border-box;
   text-align: center;
 }
 
 /* About page title */
+
 .about-card h1 {
-  margin: 5px 0 12px;
+  margin: 0 0 8px;
   font-family: Georgia, serif;
-  font-size: 34px;
+  font-size: 32px;
   color: #b22222;
 }
 
 /* About page description */
+
 .about-card > p {
   max-width: 850px;
-  margin: 8px auto;
+  margin: 5px auto;
   font-size: 16px;
-  line-height: 1.4;
+  line-height: 1.3;
 }
 
 /* Movie Manager features */
+
 .about-features {
   display: flex;
   gap: 20px;
   max-width: 950px;
-  margin: 20px auto;
+  margin: 15px auto;
 }
 
 /* Individual feature boxes */
+
 .feature-box {
   flex: 1;
-  padding: 15px;
+  padding: 12px;
   background-color: #fffaf0;
   border-radius: 10px;
   text-align: center;
 }
 
 /* Feature titles */
+
 .feature-box h2 {
   margin: 5px 0 8px;
   font-family: Georgia, serif;
@@ -152,6 +170,7 @@ main {
 }
 
 /* Feature descriptions */
+
 .feature-box p {
   margin: 0;
   font-size: 14px;
@@ -159,36 +178,40 @@ main {
 }
 
 /* Feedback form */
+
 .about-card form {
   max-width: 600px;
-  margin: 20px auto 0;
+  margin: 15px auto 0;
   text-align: left;
 }
 
 /* Feedback form title */
+
 .about-card form h2 {
   text-align: center;
-  margin: 10px 0 15px;
+  margin: 5px 0 12px;
   font-family: Georgia, serif;
   font-size: 24px;
   color: #b22222;
 }
 
 /* Form labels */
+
 .about-card label {
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   color: #b22222;
   font-weight: bold;
 }
 
 /* Form inputs */
+
 .about-card input,
 .about-card textarea {
   display: block;
   width: 100%;
   margin-top: 5px;
-  padding: 9px;
+  padding: 8px;
   box-sizing: border-box;
   border: 1px solid #d6b36a;
   border-radius: 6px;
@@ -197,15 +220,17 @@ main {
 }
 
 /* Feedback textarea */
+
 .about-card textarea {
-  height: 65px;
+  height: 60px;
   resize: none;
 }
 
 /* Submit button */
+
 .about-card button {
   display: block;
-  margin: 12px auto 0;
+  margin: 10px auto 0;
   padding: 9px 18px;
   border: none;
   border-radius: 6px;
@@ -216,28 +241,31 @@ main {
 }
 
 /* Submit button hover effect */
+
 .about-card button:hover {
   transform: translateY(-2px);
 }
 
 /* Feedback success message */
+
 .about-card form > p {
   text-align: center;
-  margin: 10px 0 0;
+  margin: 8px 0 0;
   font-weight: bold;
   color: #b22222;
 }
 
 /* Footer styling */
+
 .footer {
-  padding: 15px 20px;
-  background-color: #fff3c4;
-  color: #b22222;
+  padding: 10px 20px;
+  background-color: #b22222;
+  color: #fffaf0;
   text-align: center;
 }
 
 .footer p {
-  margin: 5px;
+  margin: 4px;
 }
 
 .footer-description {
@@ -250,14 +278,22 @@ main {
 }
 
 /* Adjust navigation for smaller screens */
+
 @media (max-width: 1024px) {
+
   .header {
-    padding: 15px;
+    padding: 12px 15px;
+  }
+
+  .about-card {
+    padding: 15px 20px;
   }
 }
 
-/* Adjust navigation for mobile screens */
+/* Adjust pages for mobile screens */
+
 @media (max-width: 600px) {
+
   .header {
     flex-direction: column;
     gap: 10px;
@@ -266,5 +302,16 @@ main {
   .navigation {
     gap: 15px;
   }
-}
 
+  .about-features {
+    flex-direction: column;
+  }
+
+  .about-card h1 {
+    font-size: 28px;
+  }
+
+  .about-card {
+    padding: 15px;
+  }
+}

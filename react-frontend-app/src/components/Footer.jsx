@@ -2,10 +2,7 @@
 function Footer() {
   return (
     <footer className="footer">
-
-      {/* Footer text */}
-      <p>Movie Manager</p>
-
+        
       {/* Footer description */}
       <p className="footer-description">
         Manage your movies. Share your reviews. Keep track of your favorites.

@@ -82,6 +82,14 @@ function MovieList() {
 
     // Get the updated movie list after adding the movie
     getMovies()
+
+    // Clear the Add Movie form
+    setMovie({
+      title: '',
+      genre: '',
+      director: '',
+      releaseYear: ''
+    })
   }
 
   // Function to update an existing movie
@@ -134,51 +142,54 @@ function MovieList() {
       <h1>Movies</h1>
 
       {/* Edit movie form */}
-      {editingMovie && (
+      {editingMovie ? (
         <form onSubmit={updateMovie}>
-          <h2>Edit Movie</h2>
 
-          {/* Movie title input */}
-          <input
-            name="title"
-            value={editingMovie.title}
-            onChange={handleEditChange}
-            placeholder="Title"
-          />
-
-          {/* Movie genre input */}
-          <input
-            name="genre"
-            value={editingMovie.genre}
-            onChange={handleEditChange}
-            placeholder="Genre"
-          />
-
-          {/* Movie director input */}
-          <input
-            name="director"
-            value={editingMovie.director}
-            onChange={handleEditChange}
-            placeholder="Director"
-          />
-
-          {/* Movie release year input */}
-          <input
-            name="releaseYear"
-            value={editingMovie.releaseYear}
-            onChange={handleEditChange}
-            placeholder="Release Year"
-          />
-
-          {/* Button for submitting the movie update */}
-          <button type="submit">Update Movie</button>
-        </form>
-      )}
-
-      {/* Form for adding a new movie */}
-      <form onSubmit={addMovie}>
+        {/* Edit movie heading */}
+        <h2>Edit Movie</h2>
 
         {/* Movie title input */}
+        <input
+          name="title"
+          value={editingMovie.title}
+          onChange={handleEditChange}
+          placeholder="Title"
+        />
+
+        {/* Movie genre input */}
+        <input
+          name="genre"
+          value={editingMovie.genre}
+          onChange={handleEditChange}
+          placeholder="Genre"
+        />
+
+        {/* Movie director input */}
+        <input
+          name="director"
+          value={editingMovie.director}
+          onChange={handleEditChange}
+          placeholder="Director"
+        />
+
+        {/* Movie release year input */}
+        <input
+          name="releaseYear"
+          value={editingMovie.releaseYear}
+          onChange={handleEditChange}
+          placeholder="Release Year"
+        />
+
+        {/* Update movie button */}
+        <button type="submit">
+          Update Movie
+        </button>
+
+        </form>
+      ) : (
+        <form onSubmit={addMovie}>
+
+        {/* Add movie title input */}
         <input
           name="title"
           value={movie.title}
@@ -186,7 +197,7 @@ function MovieList() {
           placeholder="Title"
         />
 
-        {/* Movie genre input */}
+        {/* Add movie genre input */}
         <input
           name="genre"
           value={movie.genre}
@@ -194,7 +205,7 @@ function MovieList() {
           placeholder="Genre"
         />
 
-        {/* Movie director input */}
+        {/* Add movie director input */}
         <input
           name="director"
           value={movie.director}
@@ -202,7 +213,7 @@ function MovieList() {
           placeholder="Director"
         />
 
-        {/* Movie release year input */}
+        {/* Add movie release year input */}
         <input
           name="releaseYear"
           value={movie.releaseYear}
@@ -210,10 +221,13 @@ function MovieList() {
           placeholder="Release Year"
         />
 
-        {/* Submit button for adding the movie */}
-        <button type="submit">Add Movie</button>
+        {/* Add movie button */}
+        <button type="submit">
+          Add Movie
+        </button>
 
-      </form>
+        </form>
+)}
 
       {/* Display each movie from the movies array */}
       {movies.map(movie => (
