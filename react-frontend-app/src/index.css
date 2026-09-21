@@ -50,16 +50,30 @@ main {
 /* Home page layout */
 .home-section {
   flex: 1;
+  position: relative;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 40px 20px;
   box-sizing: border-box;
-  background-image: url('./assets/vintage-film.png');
-  background-size: cover;
-  background-position: center;
+  overflow: hidden;
+}
+
+/* Home page image */
+.home-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+}
+
+/* Home page content */
+.home-content {
+  position: relative;
+  z-index: 1;
 }
 
 /* Home page text */
@@ -103,4 +117,23 @@ main {
 
 .footer-credit {
   font-size: 13px;
+}
+
+/* Adjust navigation for smaller screens */
+@media (max-width: 1024px) {
+  .header {
+    padding: 15px;
+  }
+}
+
+/* Adjust navigation for mobile screens */
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navigation {
+    gap: 15px;
+  }
 }
