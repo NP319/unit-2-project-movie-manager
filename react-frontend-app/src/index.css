@@ -98,6 +98,136 @@ main {
   text-decoration: underline;
 }
 
+/* ABOUT PAGE */
+
+/* About page layout */
+.about-card {
+  flex: 1;
+  background-color: #fff3c4;
+  color: #b22222;
+  padding: 25px 40px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* About page title */
+.about-card h1 {
+  margin: 5px 0 12px;
+  font-family: Georgia, serif;
+  font-size: 34px;
+  color: #b22222;
+}
+
+/* About page description */
+.about-card > p {
+  max-width: 850px;
+  margin: 8px auto;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/* Movie Manager features */
+.about-features {
+  display: flex;
+  gap: 20px;
+  max-width: 950px;
+  margin: 20px auto;
+}
+
+/* Individual feature boxes */
+.feature-box {
+  flex: 1;
+  padding: 15px;
+  background-color: #fffaf0;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* Feature titles */
+.feature-box h2 {
+  margin: 5px 0 8px;
+  font-family: Georgia, serif;
+  font-size: 20px;
+  color: #b22222;
+}
+
+/* Feature descriptions */
+.feature-box p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* Feedback form */
+.about-card form {
+  max-width: 600px;
+  margin: 20px auto 0;
+  text-align: left;
+}
+
+/* Feedback form title */
+.about-card form h2 {
+  text-align: center;
+  margin: 10px 0 15px;
+  font-family: Georgia, serif;
+  font-size: 24px;
+  color: #b22222;
+}
+
+/* Form labels */
+.about-card label {
+  display: block;
+  margin-bottom: 10px;
+  color: #b22222;
+  font-weight: bold;
+}
+
+/* Form inputs */
+.about-card input,
+.about-card textarea {
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+  padding: 9px;
+  box-sizing: border-box;
+  border: 1px solid #d6b36a;
+  border-radius: 6px;
+  font-family: Arial, sans-serif;
+  background-color: #fffaf0;
+}
+
+/* Feedback textarea */
+.about-card textarea {
+  height: 65px;
+  resize: none;
+}
+
+/* Submit button */
+.about-card button {
+  display: block;
+  margin: 12px auto 0;
+  padding: 9px 18px;
+  border: none;
+  border-radius: 6px;
+  background-color: #b22222;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+/* Submit button hover effect */
+.about-card button:hover {
+  transform: translateY(-2px);
+}
+
+/* Feedback success message */
+.about-card form > p {
+  text-align: center;
+  margin: 10px 0 0;
+  font-weight: bold;
+  color: #b22222;
+}
+
 /* Footer styling */
 .footer {
   padding: 15px 20px;
@@ -137,3 +267,4 @@ main {
     gap: 15px;
   }
 }
+
