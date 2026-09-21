@@ -5,6 +5,7 @@ function Footer() {
 
       {/* Footer text */}
       <p>Movie Manager</p>
+      <p>Manage your movies. Share your reviews. Keep track of your favorites.</p>
 
     </footer>
   )

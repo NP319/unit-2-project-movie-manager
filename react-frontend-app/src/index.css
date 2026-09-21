@@ -85,3 +85,7 @@ footer {
 footer p {
   color: #b22222;
 }
+
+.footer-description {
+  font-size: 14px;
+}
