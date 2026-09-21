@@ -1,11 +1,20 @@
 // Footer component
 function Footer() {
   return (
-    <footer>
+    <footer className="footer">
 
       {/* Footer text */}
       <p>Movie Manager</p>
-      <p>Manage your movies. Share your reviews. Keep track of your favorites.</p>
+
+      {/* Footer description */}
+      <p className="footer-description">
+        Manage your movies. Share your reviews. Keep track of your favorites.
+      </p>
+
+      {/* Copyright text */}
+      <p className="footer-credit">
+        © 2026 Movie Manager • Built by Nikita
+      </p>
 
     </footer>
   )

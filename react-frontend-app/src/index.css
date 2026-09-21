@@ -76,16 +76,22 @@ main {
 }
 
 /* Footer styling */
-footer {
-  padding: 10px 20px;
+.footer {
+  padding: 15px 20px;
   background-color: #fff3c4;
   color: #b22222;
+  text-align: center;
 }
 
-footer p {
-  color: #b22222;
+.footer p {
+  margin: 5px;
 }
 
 .footer-description {
   font-size: 14px;
+  font-style: italic;
+}
+
+.footer-credit {
+  font-size: 13px;
 }
