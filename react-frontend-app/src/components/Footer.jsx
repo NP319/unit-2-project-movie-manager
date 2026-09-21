@@ -13,7 +13,7 @@ function Footer() {
 
       {/* Copyright text */}
       <p className="footer-credit">
-        © 2026 Movie Manager • Built by Nikita
+        © 2026 • Built by Nikita
       </p>
 
     </footer>

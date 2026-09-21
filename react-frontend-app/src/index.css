@@ -62,6 +62,13 @@ main {
   background-position: center;
 }
 
+/* Home page text */
+.home-section h1,
+.home-section p {
+  color: white;
+  text-shadow: 2px 2px 4px black;
+}
+
 /* View Movies link */
 .view-movies-link {
   display: inline-block;
