@@ -7,8 +7,6 @@ import { Link } from 'react-router'
 // Import the movie ticket image
 import movieTicket from '../assets/movie ticket.png'
 
-// State to show the popcorn animation
-const [showPopcorn, setShowPopcorn] = useState(false)
 
 // Movie List page component
 function MovieList() {
@@ -85,14 +83,6 @@ function MovieList() {
       // Convert the movie object into JSON
       body: JSON.stringify(movie)
     })
-
-    // Show the popcorn animation
-      setShowPopcorn(true)
-
-    // Hide the popcorn animation after it finishes
-      setTimeout(() => {
-      setShowPopcorn(false)
-    }, 2000)
 
     // Get the updated movie list after adding the movie
     getMovies()

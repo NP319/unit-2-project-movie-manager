@@ -238,13 +238,14 @@ main {
   background-color: #b22222;
   color: white;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 /* Submit button hover effect */
 
 .about-card button:hover {
   transform: translateY(-2px);
+  background-color: #8f1d1d;
 }
 
 /* Feedback success message */
@@ -346,12 +347,13 @@ main {
   color: white;
   cursor: pointer;
   font-size: 14px;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 /* Movie form button hover */
 .movie-form button:hover {
   transform: translateY(-2px);
+  background-color: #8f1d1d;
 }
 
 /* Movie list */
@@ -427,12 +429,13 @@ main {
   color: white;
   cursor: pointer;
   font-size: 14px;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 /* Button hover */
 .movie-actions button:hover {
   transform: translateY(-2px);
+  background-color: #8f1d1d;
 }
 
 /* Delete button */
