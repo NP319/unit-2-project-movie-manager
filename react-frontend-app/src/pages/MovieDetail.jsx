@@ -105,9 +105,12 @@ function MovieDetail() {
 
   // Display the movie details
   return (
-    <div  className="movie-detail-page">
+  <div className="movie-detail-page">
 
-      {/* Page title */}
+    {/* Left side: movie information */}
+    <section className="movie-information">
+
+      {/* Movie title */}
       <h1>{movie.title}</h1>
 
       {/* Movie genre */}
@@ -119,9 +122,15 @@ function MovieDetail() {
       {/* Movie release year */}
       <p>Release Year: {movie.releaseYear}</p>
 
-            {/* Display reviews for this movie */}
+    </section>
+
+    {/* Right side: reviews and review form */}
+    <section className="movie-reviews">
+
+      {/* Reviews heading */}
       <h2>Reviews</h2>
 
+      {/* Display reviews for this movie */}
       {reviews.map(review => (
         <ReviewItem
           key={review.id}
@@ -130,12 +139,15 @@ function MovieDetail() {
         />
       ))}
 
-            {/* Review form for this movie */}
-        <ReviewForm
-          movie={movie}
-          addReview={addReview}
-        />
-    </div>
+      {/* Review form for this movie */}
+      <ReviewForm
+        movie={movie}
+        addReview={addReview}
+      />
+
+    </section>
+
+  </div>
   )
 }
 
