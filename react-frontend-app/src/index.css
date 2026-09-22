@@ -51,6 +51,7 @@ body {
 main {
   flex: 1;
   display: flex;
+  flex-direction: column;
 }
 
 /* Home page layout */
@@ -253,6 +254,190 @@ main {
   margin: 8px 0 0;
   font-weight: bold;
   color: #b22222;
+}
+
+/* MOVIES PAGE */
+
+/* Movies page layout */
+.movies-page {
+  flex: 1;
+  padding: 25px 40px 40px;
+  box-sizing: border-box;
+  background-color: #fff3c4;
+  color: #b22222;
+}
+
+/* Movies page heading */
+.movies-intro {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* Movie ticket image */
+.movie-ticket {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+/* Movie ticket size */
+.movie-ticket img {
+  width: 300px;
+  max-width: 70%;
+  height: auto;
+}
+
+/* Movies heading */
+.movies-intro h1 {
+  margin: 5px 0;
+  font-family: Georgia, serif;
+  font-size: 32px;
+  color: #b22222;
+}
+
+/* Add and edit movie section */
+.movie-form-section {
+  max-width: 1000px;
+  margin: 0 auto 25px;
+  padding: 20px;
+  background-color: #fffaf0;
+  border: 1px solid #d6b36a;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+/* Movie form */
+.movie-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Add/Edit movie heading */
+.movie-form h2 {
+  width: 100%;
+  margin: 0 0 10px;
+  text-align: center;
+  font-family: Georgia, serif;
+  font-size: 22px;
+  color: #b22222;
+}
+
+/* Movie form inputs */
+.movie-form input {
+  flex: 1;
+  min-width: 150px;
+  padding: 9px;
+  box-sizing: border-box;
+  border: 1px solid #d6b36a;
+  border-radius: 6px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  background-color: white;
+}
+
+/* Movie form button */
+.movie-form button {
+  padding: 9px 18px;
+  border: none;
+  border-radius: 6px;
+  background-color: #b22222;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: transform 0.2s ease;
+}
+
+/* Movie form button hover */
+.movie-form button:hover {
+  transform: translateY(-2px);
+}
+
+/* Movie list */
+.movie-list {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Individual movie card */
+.movie-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 15px;
+  padding: 18px 22px;
+  background-color: #fffaf0;
+  border: 1px solid #d6b36a;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+/* Movie information */
+.movie-info {
+  flex: 1;
+}
+
+/* Movie title */
+.movie-info h2 {
+  margin: 0 0 8px;
+  font-family: Georgia, serif;
+  font-size: 21px;
+  color: #b22222;
+}
+
+/* Movie details */
+.movie-info p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #333333;
+}
+
+/* Movie buttons */
+.movie-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* View Details link */
+.view-details-link {
+  display: inline-block;
+  padding: 8px 14px;
+  border: 1px solid #b22222;
+  border-radius: 6px;
+  color: #b22222;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* View Details hover */
+.view-details-link:hover {
+  background-color: #b22222;
+  color: white;
+}
+
+/* Edit and Delete buttons */
+.movie-actions button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background-color: #b22222;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: transform 0.2s ease;
+}
+
+/* Button hover */
+.movie-actions button:hover {
+  transform: translateY(-2px);
+}
+
+/* Delete button */
+.movie-actions .delete-button {
+  background-color: #8f1d1d;
 }
 
 /* Footer styling */

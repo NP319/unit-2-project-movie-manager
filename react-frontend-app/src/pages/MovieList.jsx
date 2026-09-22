@@ -4,6 +4,9 @@ import React, { useEffect, useState } from 'react'
 // Import Link to navigate to the Movie Detail page
 import { Link } from 'react-router'
 
+// Import the movie ticket image
+import movieTicket from '../assets/movie ticket.png'
+
 // Movie List page component
 function MovieList() {
 
@@ -134,137 +137,175 @@ function MovieList() {
     getMovies()
   }
 
-  // Display the Movie List page
+    // Display the Movie List page
   return (
-    <div>
+    <main className="movies-page">
 
-      {/* Page title */}
-      <h1>Movies</h1>
-
-      {/* Edit movie form */}
-      {editingMovie ? (
-        <form onSubmit={updateMovie}>
-
-        {/* Edit movie heading */}
-        <h2>Edit Movie</h2>
-
-        {/* Movie title input */}
-        <input
-          name="title"
-          value={editingMovie.title}
-          onChange={handleEditChange}
-          placeholder="Title"
+       {/* Movie page title */}
+      <div className="movie-ticket">
+      <img
+        src={movieTicket}
+        alt="Movies"
         />
+      </div>
 
-        {/* Movie genre input */}
-        <input
-          name="genre"
-          value={editingMovie.genre}
-          onChange={handleEditChange}
-          placeholder="Genre"
-        />
+      {/* Add or update movie form */}
+      <section className="movie-form-section">
 
-        {/* Movie director input */}
-        <input
-          name="director"
-          value={editingMovie.director}
-          onChange={handleEditChange}
-          placeholder="Director"
-        />
+        {editingMovie ? (
 
-        {/* Movie release year input */}
-        <input
-          name="releaseYear"
-          value={editingMovie.releaseYear}
-          onChange={handleEditChange}
-          placeholder="Release Year"
-        />
+          <form className="movie-form" onSubmit={updateMovie}>
 
-        {/* Update movie button */}
-        <button type="submit">
-          Update Movie
-        </button>
+            {/* Edit movie heading */}
+            <h2>Edit Movie</h2>
 
-        </form>
-      ) : (
-        <form onSubmit={addMovie}>
+            {/* Movie title input */}
+            <input
+              name="title"
+              value={editingMovie.title}
+              onChange={handleEditChange}
+              placeholder="Title"
+            />
 
-        {/* Add movie title input */}
-        <input
-          name="title"
-          value={movie.title}
-          onChange={handleChange}
-          placeholder="Title"
-        />
+            {/* Movie genre input */}
+            <input
+              name="genre"
+              value={editingMovie.genre}
+              onChange={handleEditChange}
+              placeholder="Genre"
+            />
 
-        {/* Add movie genre input */}
-        <input
-          name="genre"
-          value={movie.genre}
-          onChange={handleChange}
-          placeholder="Genre"
-        />
+            {/* Movie director input */}
+            <input
+              name="director"
+              value={editingMovie.director}
+              onChange={handleEditChange}
+              placeholder="Director"
+            />
 
-        {/* Add movie director input */}
-        <input
-          name="director"
-          value={movie.director}
-          onChange={handleChange}
-          placeholder="Director"
-        />
+            {/* Movie release year input */}
+            <input
+              name="releaseYear"
+              value={editingMovie.releaseYear}
+              onChange={handleEditChange}
+              placeholder="Release Year"
+            />
 
-        {/* Add movie release year input */}
-        <input
-          name="releaseYear"
-          value={movie.releaseYear}
-          onChange={handleChange}
-          placeholder="Release Year"
-        />
+            {/* Update movie button */}
+            <button type="submit">
+              Update Movie
+            </button>
 
-        {/* Add movie button */}
-        <button type="submit">
-          Add Movie
-        </button>
+          </form>
 
-        </form>
-)}
+        ) : (
+
+          <form className="movie-form" onSubmit={addMovie}>
+
+            {/* Add movie heading */}
+            <h2>Add a Movie</h2>
+
+            {/* Add movie title input */}
+            <input
+              name="title"
+              value={movie.title}
+              onChange={handleChange}
+              placeholder="Title"
+            />
+
+            {/* Add movie genre input */}
+            <input
+              name="genre"
+              value={movie.genre}
+              onChange={handleChange}
+              placeholder="Genre"
+            />
+
+            {/* Add movie director input */}
+            <input
+              name="director"
+              value={movie.director}
+              onChange={handleChange}
+              placeholder="Director"
+            />
+
+            {/* Add movie release year input */}
+            <input
+              name="releaseYear"
+              value={movie.releaseYear}
+              onChange={handleChange}
+              placeholder="Release Year"
+            />
+
+            {/* Add movie button */}
+            <button type="submit">
+              Add Movie
+            </button>
+
+          </form>
+
+        )}
+
+      </section>
 
       {/* Display each movie from the movies array */}
-      {movies.map(movie => (
+      <section className="movie-list">
 
-        // Container for one movie
-        <div key={movie.id}>
+        {movies.map(movie => (
 
-          {/* Display movie title */}
-          <h2>{movie.title}</h2>
+          // Container for one movie
+          <article className="movie-card" key={movie.id}>
 
-          {/* Display movie genre */}
-          <p>Genre: {movie.genre}</p>
+            {/* Movie information */}
+            <div className="movie-info">
 
-          {/* Display movie director */}
-          <p>Director: {movie.director}</p>
+              {/* Display movie title */}
+              <h2>{movie.title}</h2>
 
-          {/* Display movie release year */}
-          <p>Release Year: {movie.releaseYear}</p>
+              {/* Display movie genre */}
+              <p>Genre: {movie.genre}</p>
 
-          {/* Link to the Movie Detail page for this movie */}
-          <Link to={`/movies/${movie.id}`}>
-            View Details
-          </Link>
+              {/* Display movie director */}
+              <p>Director: {movie.director}</p>
 
-          {/* Edit button for updating the movie */}
-          <button onClick={() => setEditingMovie(movie)}>
-            Edit
-          </button>
+              {/* Display movie release year */}
+              <p>Release Year: {movie.releaseYear}</p>
 
-          {/* Delete button for removing the movie */}
-          <button onClick={() => deleteMovie(movie.id)}>
-            Delete
-          </button>
+            </div>
 
-        </div>
-      ))}
-    </div>
+            {/* Movie actions */}
+            <div className="movie-actions">
+
+              {/* Link to the Movie Detail page */}
+              <Link
+                className="view-details-link"
+                to={`/movies/${movie.id}`}
+              >
+                View Details
+              </Link>
+
+              {/* Edit button */}
+              <button onClick={() => setEditingMovie(movie)}>
+                Edit
+              </button>
+
+              {/* Delete button */}
+              <button
+                className="delete-button"
+                onClick={() => deleteMovie(movie.id)}
+              >
+                Delete
+              </button>
+
+            </div>
+
+          </article>
+
+        ))}
+
+      </section>
+
+    </main>
   )
 }
 
