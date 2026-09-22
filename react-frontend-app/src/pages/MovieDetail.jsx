@@ -122,6 +122,12 @@ function MovieDetail() {
       {/* Movie release year */}
       <p>Release Year: {movie.releaseYear}</p>
 
+      {/* Review form for this movie */}
+      <ReviewForm
+        movie={movie}
+        addReview={addReview}
+      />
+
     </section>
 
     {/* Right side: reviews and review form */}
@@ -138,12 +144,6 @@ function MovieDetail() {
           deleteReview={deleteReview}
         />
       ))}
-
-      {/* Review form for this movie */}
-      <ReviewForm
-        movie={movie}
-        addReview={addReview}
-      />
 
     </section>
 

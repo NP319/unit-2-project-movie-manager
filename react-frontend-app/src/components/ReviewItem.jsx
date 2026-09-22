@@ -3,7 +3,7 @@ function ReviewItem({ review, deleteReview }) {
 
   // Display one review
   return (
-    <div>
+    <div className="review-card">
 
       {/* Display the review rating */}
       <p>Rating: {review.rating}</p>
