@@ -443,6 +443,41 @@ main {
   background-color: #8f1d1d;
 }
 
+/* MOVIE DETAIL PAGE */
+
+/* Movie detail page layout */
+.movie-detail-page {
+  flex: 1;
+  padding: 30px 40px 40px;
+  box-sizing: border-box;
+  background-color: #fff3c4;
+  color: #b22222;
+  text-align: center;
+}
+
+/* Movie detail title */
+.movie-detail-page > h1 {
+  margin: 5px 0 15px;
+  font-family: Georgia, serif;
+  font-size: 32px;
+  color: #b22222;
+}
+
+/* Movie information */
+.movie-detail-page > p {
+  margin: 6px 0;
+  font-size: 15px;
+  color: #333333;
+}
+
+/* Reviews heading */
+.movie-detail-page > h2 {
+  margin: 30px 0 15px;
+  font-family: Georgia, serif;
+  font-size: 24px;
+  color: #b22222;
+}
+
 /* Footer styling */
 
 .footer {

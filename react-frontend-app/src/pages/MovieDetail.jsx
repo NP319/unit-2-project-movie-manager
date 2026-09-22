@@ -105,7 +105,7 @@ function MovieDetail() {
 
   // Display the movie details
   return (
-    <div>
+    <div  className="movie-detail-page">
 
       {/* Page title */}
       <h1>{movie.title}</h1>

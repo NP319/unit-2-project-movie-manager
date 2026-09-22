@@ -73,7 +73,7 @@ function ReviewForm({ movie, addReview }) {
 
   // Display the Review form
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="review-form" onSubmit={handleSubmit}>
 
       {/* Form title */}
       <h2>Add a Review</h2>
