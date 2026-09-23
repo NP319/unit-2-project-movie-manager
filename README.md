@@ -1,5 +1,4 @@
 Movie Manager
-
 Movie Manager is a full-stack web application for managing a personal
 movie collection. Users can view a collection of movies, add new movies,
 edit existing movie information, and delete movies. Each movie can also
@@ -11,7 +10,7 @@ and Vite, while the backend uses Java and Spring Boot to provide REST
 API endpoints connected to a MySQL database through Spring Data JPA and
 Hibernate.
 
-Technologies Used
+Technologies Used-
 
 Front End
 
@@ -94,23 +93,7 @@ Project Structure
 unit-2-project-movie-manager/
 │
 ├── java-spring-boot-back-end-app/
-│   └── src/
-│       └── main/
-│           ├── java/
-│           │   └── com/nikita/moviemanager/
-│           │       ├── controllers/
-│           │       ├── models/
-│           │       └── repositories/
-│           └── resources/
-│               └── application.properties
-│
 ├── react-frontend-app/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── App.jsx
-│   │   └── index.css
-│   └── package.json
 │
 └── README.md
 
