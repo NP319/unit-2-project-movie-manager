@@ -1,0 +1,666 @@
+/* Global page styling */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fff3c4;
+}
+
+/* Main React container */
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header styling */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background-color: #fff3c4;
+  color: #b22222;
+}
+
+.header h1 {
+  margin: 0;
+  color: #b22222;
+}
+
+/* Navigation styling */
+
+.navigation {
+  display: flex;
+  gap: 20px;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: #b22222;
+}
+
+.navigation a:hover {
+  text-decoration: underline;
+}
+
+/* Main page content */
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Home page layout */
+
+.home-section {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Home page image */
+
+.home-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+}
+
+/* Home page content */
+
+.home-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Home page text */
+
+.home-section h1,
+.home-section p {
+  color: white;
+  text-shadow: 2px 2px 4px black;
+}
+
+/* View Movies link */
+
+.view-movies-link {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #fff3c4;
+  font-weight: bold;
+}
+
+/* View Movies hover effect */
+
+.view-movies-link:hover {
+  text-decoration: underline;
+}
+
+/* ABOUT PAGE */
+
+/* About page layout */
+
+.about-card {
+  flex: 1;
+  background-color: #fff3c4;
+  color: #b22222;
+  padding: 15px 30px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* About page title */
+
+.about-card h1 {
+  margin: 0 0 8px;
+  font-family: Georgia, serif;
+  font-size: 32px;
+  color: #b22222;
+}
+
+/* About page description */
+
+.about-card > p {
+  max-width: 850px;
+  margin: 5px auto;
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+/* Movie Manager features */
+
+.about-features {
+  display: flex;
+  gap: 20px;
+  max-width: 950px;
+  margin: 15px auto;
+}
+
+/* Individual feature boxes */
+
+.feature-box {
+  flex: 1;
+  padding: 12px;
+  background-color: #fffaf0;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* Feature titles */
+
+.feature-box h2 {
+  margin: 5px 0 8px;
+  font-family: Georgia, serif;
+  font-size: 20px;
+  color: #b22222;
+}
+
+/* Feature descriptions */
+
+.feature-box p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* Feedback form */
+
+.about-card form {
+  max-width: 600px;
+  margin: 15px auto 0;
+  text-align: left;
+}
+
+/* Feedback form title */
+
+.about-card form h2 {
+  text-align: center;
+  margin: 5px 0 12px;
+  font-family: Georgia, serif;
+  font-size: 24px;
+  color: #b22222;
+}
+
+/* Form labels */
+
+.about-card label {
+  display: block;
+  margin-bottom: 8px;
+  color: #b22222;
+  font-weight: bold;
+}
+
+/* Form inputs */
+
+.about-card input,
+.about-card textarea {
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #d6b36a;
+  border-radius: 6px;
+  font-family: Arial, sans-serif;
+  background-color: #fffaf0;
+}
+
+/* Feedback textarea */
+
+.about-card textarea {
+  height: 60px;
+  resize: none;
+}
+
+/* Submit button */
+
+.about-card button {
+  display: block;
+  margin: 10px auto 0;
+  padding: 9px 18px;
+  border: none;
+  border-radius: 6px;
+  background-color: #b22222;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* Submit button hover effect */
+
+.about-card button:hover {
+  transform: translateY(-2px);
+  background-color: #8f1d1d;
+}
+
+/* Feedback success message */
+
+.about-card form > p {
+  text-align: center;
+  margin: 8px 0 0;
+  font-weight: bold;
+  color: #b22222;
+}
+
+/* MOVIES PAGE */
+
+/* Movies page layout */
+.movies-page {
+  flex: 1;
+  padding: 25px 40px 40px;
+  box-sizing: border-box;
+  background-color: #fff3c4;
+  color: #b22222;
+}
+
+/* Movies page heading */
+.movies-intro {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* Movie ticket image */
+.movie-ticket {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+/* Movie ticket size */
+.movie-ticket img {
+  width: 300px;
+  max-width: 70%;
+  height: auto;
+}
+
+/* Movies heading */
+.movies-intro h1 {
+  margin: 5px 0;
+  font-family: Georgia, serif;
+  font-size: 32px;
+  color: #b22222;
+}
+
+/* Add and edit movie section */
+.movie-form-section {
+  max-width: 1000px;
+  margin: 0 auto 25px;
+  padding: 20px;
+  background-color: #fffaf0;
+  border: 1px solid #d6b36a;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+/* Movie form */
+.movie-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Add/Edit movie heading */
+.movie-form h2 {
+  width: 100%;
+  margin: 0 0 10px;
+  text-align: center;
+  font-family: Georgia, serif;
+  font-size: 22px;
+  color: #b22222;
+}
+
+/* Movie form inputs */
+.movie-form input {
+  flex: 1;
+  min-width: 150px;
+  padding: 9px;
+  box-sizing: border-box;
+  border: 1px solid #d6b36a;
+  border-radius: 6px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  background-color: white;
+}
+
+/* Movie form button */
+.movie-form button {
+  padding: 9px 18px;
+  border: none;
+  border-radius: 6px;
+  background-color: #b22222;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* Movie form button hover */
+.movie-form button:hover {
+  transform: translateY(-2px);
+  background-color: #8f1d1d;
+}
+
+/* Movie list */
+.movie-list {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Individual movie card */
+.movie-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 15px;
+  padding: 18px 22px;
+  background-color: #fffaf0;
+  border: 1px solid #d6b36a;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+/* Movie information */
+.movie-info {
+  flex: 1;
+}
+
+/* Movie title */
+.movie-info h2 {
+  margin: 0 0 8px;
+  font-family: Georgia, serif;
+  font-size: 21px;
+  color: #b22222;
+}
+
+/* Movie details */
+.movie-info p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #333333;
+}
+
+/* Movie buttons */
+.movie-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* View Details link */
+.view-details-link {
+  display: inline-block;
+  padding: 8px 14px;
+  border: 1px solid #b22222;
+  border-radius: 6px;
+  color: #b22222;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* View Details hover */
+.view-details-link:hover {
+  background-color: #b22222;
+  color: white;
+}
+
+/* Edit and Delete buttons */
+.movie-actions button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background-color: #b22222;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* Button hover */
+.movie-actions button:hover {
+  transform: translateY(-2px);
+  background-color: #8f1d1d;
+}
+
+/* Delete button */
+.movie-actions .delete-button {
+  background-color: #8f1d1d;
+}
+
+/* MOVIE DETAIL PAGE */
+
+/* Movie detail page layout */
+.movie-detail-page {
+  flex: 1;
+  display: flex;
+  gap: 30px;
+  padding: 30px 40px 40px;
+  box-sizing: border-box;
+  background-color: #fff3c4;
+  color: #b22222;
+}
+
+/* Movie information section */
+.movie-information {
+  flex: 1;
+  padding: 30px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Movie title */
+.movie-information h1 {
+  margin: 20px 0;
+  font-family: Georgia, serif;
+  font-size: 32px;
+  color: #b22222;
+}
+
+/* Movie information */
+.movie-information p {
+  margin: 10px 0;
+  font-size: 15px;
+  color: #333333;
+}
+
+/* Reviews section */
+.movie-reviews {
+  flex: 1;
+  padding: 30px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Reviews heading */
+.movie-reviews h2 {
+  margin: 5px 0 20px;
+  font-family: Georgia, serif;
+  font-size: 24px;
+  color: #b22222;
+}
+
+/* Add Review form */
+.review-form {
+  max-width: 450px;
+  margin: 25px auto 0;
+  text-align: center;
+}
+
+/* Add Review heading */
+.review-form h2 {
+  margin: 0 0 15px;
+  font-family: Georgia, serif;
+  font-size: 24px;
+  color: #b22222;
+}
+
+/* Review form labels */
+.review-form label {
+  display: block;
+  margin: 12px 0;
+  color: #b22222;
+  font-weight: bold;
+}
+
+/* Review form inputs */
+.review-form input,
+.review-form textarea {
+  display: block;
+  width: 100%;
+  margin: 6px auto 0;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #d6b36a;
+  border-radius: 6px;
+  font-family: Arial, sans-serif;
+  background-color: #fffaf0;
+}
+
+/* Rating input */
+.review-form input {
+  width: 120px;
+}
+
+/* Review comment box */
+.review-form textarea {
+  height: 80px;
+  resize: none;
+}
+
+/* Add Review button */
+.review-form button {
+  margin-top: 8px;
+  padding: 9px 18px;
+  border: none;
+  border-radius: 6px;
+  background-color: #b22222;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* Add Review button hover */
+.review-form button:hover {
+  transform: translateY(-2px);
+  background-color: #8f1d1d;
+}
+
+/* Review form messages */
+.review-form p {
+  margin: 8px 0;
+  color: #b22222;
+  font-weight: bold;
+}
+
+/* Individual review card */
+.review-card {
+  margin: 10px auto;
+  padding: 15px;
+  max-width: 500px;
+  background-color: #fffaf0;
+  border: 1px solid #d6b36a;
+  border-radius: 8px;
+  text-align: left;
+}
+
+/* Review information */
+.review-card p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #333333;
+}
+
+/* Review delete button */
+.review-card button {
+  margin-top: 8px;
+  padding: 7px 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #8f1d1d;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* Review delete button hover */
+.review-card button:hover {
+  transform: translateY(-2px);
+  background-color: #6f1515;
+}
+
+/* Footer styling */
+
+.footer {
+  padding: 10px 20px;
+  background-color: #b22222;
+  color: #fffaf0;
+  text-align: center;
+}
+
+.footer p {
+  margin: 4px;
+}
+
+.footer-description {
+  font-size: 14px;
+  font-style: italic;
+}
+
+.footer-credit {
+  font-size: 13px;
+}
+
+/* Adjust navigation for smaller screens */
+
+@media (max-width: 1024px) {
+
+  .header {
+    padding: 12px 15px;
+  }
+
+  .about-card {
+    padding: 15px 20px;
+  }
+}
+
+/* Adjust pages for mobile screens */
+
+@media (max-width: 600px) {
+
+  .header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navigation {
+    gap: 15px;
+  }
+
+  .about-features {
+    flex-direction: column;
+  }
+
+  .about-card h1 {
+    font-size: 28px;
+  }
+
+  .about-card {
+    padding: 15px;
+  }
+}
