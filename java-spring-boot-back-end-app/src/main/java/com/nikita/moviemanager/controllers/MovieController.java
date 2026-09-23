@@ -59,6 +59,18 @@ public class MovieController {
     //delete a movie
     @DeleteMapping("{id}")
     public void deleteMovie(@PathVariable int id) {
+
+        // Get all reviews
+        List<Review> reviews = reviewRepository.findAll();
+
+        // Delete reviews connected to this movie
+        for (Review review : reviews) {
+            if (review.getMovie() != null && review.getMovie().getId() == id) {
+                reviewRepository.deleteById(review.getId());
+            }
+        }
+
+        // Delete the movie
         movieRepository.deleteById(id);
     }
 }
