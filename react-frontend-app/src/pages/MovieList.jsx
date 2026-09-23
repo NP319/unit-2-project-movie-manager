@@ -14,6 +14,9 @@ function MovieList() {
   // State to store all movies from the database
   const [movies, setMovies] = useState([])
 
+  // State to store the total number of movies
+  const [movieCount, setMovieCount] = useState(0)
+
   // State to store validation messages
   const [error, setError] = useState('')
 
