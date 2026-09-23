@@ -1,4 +1,4 @@
-Movie Manager
+
 Movie Manager is a full-stack web application for managing a personal
 movie collection. Users can view a collection of movies, add new movies,
 edit existing movie information, and delete movies. Each movie can also
@@ -10,43 +10,43 @@ and Vite, while the backend uses Java and Spring Boot to provide REST
 API endpoints connected to a MySQL database through Spring Data JPA and
 Hibernate.
 
-Technologies Used-
+***Technologies Used***
 
-Front End
+##Front End
 
-React
+-React
 
-Vite
+-Vite
 
-JavaScript
+-JavaScript
 
-React Router
+-React Router
 
-HTML
+-HTML
 
-CSS
+-CSS
 
-Fetch API
+-Fetch API
 
-Back End
+##Back End
 
-Java
+-Java
 
-Spring Boot
+-Spring Boot
 
-Spring Data JPA
+-Spring Data JPA
 
-Hibernate
+-Hibernate
 
-Maven
+-Maven
 
-Database
+##Database
 
-MySQL
+-MySQL
 
-MySQL Workbench
+-MySQL Workbench
 
-Development and Testing Tools
+***Development and Testing Tools***
 
 Visual Studio Code
 
@@ -88,7 +88,7 @@ Responsive styling
 
 REST API communication between React and Spring Boot
 
-Project Structure
+***Project Structure***
 
 unit-2-project-movie-manager/
 │
@@ -98,13 +98,9 @@ unit-2-project-movie-manager/
 └── README.md
 
 
-WIREFRAMES - https://canva.link/aztktv3w1c44old
+***Database Design***
+
 ERD -https://canva.link/x1xo1krbdifhine
-
-
-
-Database Design
-
 The application uses two related entities:
 
 Movie
@@ -136,14 +132,14 @@ Entity Relationship Diagram
 
 
 
-Wireframes
+***Wireframes***
 
 The wireframes represent the main screens and user flow of the Movie
 Manager application.
+WIREFRAMES - https://canva.link/aztktv3w1c44old
 
 
-
-Installation and Setup
+***Installation and Setup***
 
 1. Clone the repository
 
@@ -234,7 +230,7 @@ GET      /reviews        Get reviews
 POST     /reviews        Add a review
 DELETE   /reviews/{id}   Delete a review
 
-Testing and Debugging
+***Testing and Debugging***
 
 The application was manually tested during development using the browser
 and Postman.
@@ -271,7 +267,7 @@ Fixing movie deletion when related reviews existed
 
 Checking API responses and database behavior in Postman
 
-Git and Version Control
+***Git and Version Control***
 
 Development was completed using Git feature branches and pull requests.
 Changes were committed frequently with concise commit messages and
@@ -295,7 +291,7 @@ Add user authentication and personalized movie collections
 
 Deploy the application so it can be accessed online
 
-Known Limitations
+***Known Limitations***
 
 The application currently runs locally and depends on a local MySQL
 database, Spring Boot backend, and React development server.
