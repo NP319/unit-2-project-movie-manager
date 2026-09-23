@@ -135,6 +135,9 @@ function MovieList() {
     // Get the updated movie list after adding the movie
     getMovies()
 
+    // Get the updated movie count after adding the movie
+    getMovieCount()
+
     // Clear the Add Movie form
     setMovie({
       title: '',
@@ -184,6 +187,9 @@ function MovieList() {
 
     // Get the updated movie list after deleting the movie
     getMovies()
+
+    // Get the updated movie list after deleting the movie
+    getMovieCount()
   }
 
     // Display the Movie List page
