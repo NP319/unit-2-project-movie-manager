@@ -1,6 +1,8 @@
 package com.nikita.moviemanager.controllers;
 
 import com.nikita.moviemanager.models.Movie;
+import com.nikita.moviemanager.models.Review;
+import com.nikita.moviemanager.repositories.ReviewRepository;
 import com.nikita.moviemanager.repositories.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -18,10 +20,19 @@ public class MovieController {
     @Autowired
     private MovieRepository movieRepository;
 
+    @Autowired
+    private ReviewRepository reviewRepository;
+
     //get all movies
     @GetMapping
     public List<Movie> getAllMovies() {
         return movieRepository.findAll();
+    }
+
+    //get total number of movies
+    @GetMapping("count")
+    public long getMovieCount() {
+        return movieRepository.count();
     }
 
     //get a movie by ID
@@ -48,6 +59,18 @@ public class MovieController {
     //delete a movie
     @DeleteMapping("{id}")
     public void deleteMovie(@PathVariable int id) {
+
+        // Get all reviews
+        List<Review> reviews = reviewRepository.findAll();
+
+        // Delete reviews connected to this movie
+        for (Review review : reviews) {
+            if (review.getMovie() != null && review.getMovie().getId() == id) {
+                reviewRepository.deleteById(review.getId());
+            }
+        }
+
+        // Delete the movie
         movieRepository.deleteById(id);
     }
 }
