@@ -14,6 +14,9 @@ function MovieList() {
   // State to store all movies from the database
   const [movies, setMovies] = useState([])
 
+  // State to store the total number of movies
+  const [movieCount, setMovieCount] = useState(0)
+
   // State to store validation messages
   const [error, setError] = useState('')
 
@@ -33,9 +36,23 @@ function MovieList() {
     setMovies(data)
   }
 
-  // Get the movies when the component loads
+  // Function to get the total number of movies
+  async function getMovieCount() {
+
+    // Send a GET request to the Movie Count API
+    let response = await fetch('http://localhost:8080/movies/count')
+
+    // Convert the response into a number
+    let data = await response.json()
+
+    // Store the movie count in state
+    setMovieCount(data)
+  }
+
+  // Get the movies and movie count when the component loads
   useEffect(() => {
     getMovies()
+    getMovieCount()
   }, [])
 
   // State to store the information for a new movie
@@ -118,6 +135,9 @@ function MovieList() {
     // Get the updated movie list after adding the movie
     getMovies()
 
+    // Get the updated movie count after adding the movie
+    getMovieCount()
+
     // Clear the Add Movie form
     setMovie({
       title: '',
@@ -167,6 +187,9 @@ function MovieList() {
 
     // Get the updated movie list after deleting the movie
     getMovies()
+
+    // Get the updated movie list after deleting the movie
+    getMovieCount()
   }
 
     // Display the Movie List page
@@ -180,6 +203,11 @@ function MovieList() {
         alt="Movies"
         />
       </div>
+
+      {/* Display the total number of movies */}
+      <p className="movie-count">
+        Total Movies: {movieCount}
+      </p>
 
       {/* Add or update movie form */}
       <section className="movie-form-section">
