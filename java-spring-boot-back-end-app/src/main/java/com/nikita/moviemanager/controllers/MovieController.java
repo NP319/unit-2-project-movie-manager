@@ -24,6 +24,12 @@ public class MovieController {
         return movieRepository.findAll();
     }
 
+    //get total number of movies
+    @GetMapping("count")
+    public long getMovieCount() {
+        return movieRepository.count();
+    }
+
     //get a movie by ID
     @GetMapping("{id}")
     public Optional<Movie> findById(@PathVariable int id) {
