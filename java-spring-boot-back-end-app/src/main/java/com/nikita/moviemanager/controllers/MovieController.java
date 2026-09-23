@@ -1,6 +1,8 @@
 package com.nikita.moviemanager.controllers;
 
 import com.nikita.moviemanager.models.Movie;
+import com.nikita.moviemanager.models.Review;
+import com.nikita.moviemanager.repositories.ReviewRepository;
 import com.nikita.moviemanager.repositories.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,6 +19,9 @@ public class MovieController {
 
     @Autowired
     private MovieRepository movieRepository;
+
+    @Autowired
+    private ReviewRepository reviewRepository;
 
     //get all movies
     @GetMapping
