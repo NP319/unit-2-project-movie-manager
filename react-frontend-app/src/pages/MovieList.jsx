@@ -14,6 +14,12 @@ function MovieList() {
   // State to store all movies from the database
   const [movies, setMovies] = useState([])
 
+  // State to store validation messages
+  const [error, setError] = useState('')
+
+  // State to store the success message
+  const [success, setSuccess] = useState('')
+
   // Function to get all movies from the Spring Boot API
   async function getMovies() {
 
@@ -61,6 +67,10 @@ function MovieList() {
       ...editingMovie,
       [event.target.name]: event.target.value
     })
+
+    // Clear old messages when the user changes an input
+    setError('')
+    setSuccess('')
   }
 
   // Function to add a new movie
@@ -69,8 +79,24 @@ function MovieList() {
     // Prevent the form from refreshing the page
     event.preventDefault()
 
+    // Check that all movie fields are filled in
+  if (
+    movie.title.trim() === '' ||
+    movie.genre.trim() === '' ||
+    movie.director.trim() === '' ||
+    movie.releaseYear === ''
+  ) {
+    setError('Please enter all movie fields.')
+    setSuccess('')
+    return
+  }
+
+  // Clear any old messages
+  setError('')
+  setSuccess('')
+
     // Send the new movie to the Spring Boot API
-    await fetch('http://localhost:8080/movies', {
+    let response = await fetch('http://localhost:8080/movies', {  
 
       // Use POST to create a new movie
       method: 'POST',
@@ -83,6 +109,11 @@ function MovieList() {
       // Convert the movie object into JSON
       body: JSON.stringify(movie)
     })
+
+    // Check if the movie was added successfully
+    if (response.ok) {
+    setSuccess('Movie added successfully!')
+    }
 
     // Get the updated movie list after adding the movie
     getMovies()
@@ -248,6 +279,16 @@ function MovieList() {
         )}
 
       </section>
+
+      {/* Show validation error */}
+      {error && (
+        <p className="movie-form-message">{error}</p>
+      )}
+
+      {/* Show success message */}
+      {success && (
+        <p className="movie-form-message">{success}</p>
+      )}
 
       {/* Display each movie from the movies array */}
       <section className="movie-list">
