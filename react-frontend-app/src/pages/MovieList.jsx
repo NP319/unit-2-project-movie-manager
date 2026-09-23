@@ -198,6 +198,11 @@ function MovieList() {
         />
       </div>
 
+      {/* Display the total number of movies */}
+      <p className="movie-count">
+        Total Movies: {movieCount}
+      </p>
+
       {/* Add or update movie form */}
       <section className="movie-form-section">
 
