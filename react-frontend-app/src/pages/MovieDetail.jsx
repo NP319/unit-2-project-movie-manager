@@ -22,24 +22,41 @@ function MovieDetail() {
   // State to store reviews for the movie
   const [reviews, setReviews] = useState([])
 
+  // State to store error messages
+  const [error, setError] = useState('')
+
   // Function to get one movie from the Spring Boot API
   async function getMovie() {
 
+    try {
     // Send a GET request for the movie ID
     let response = await fetch(`http://localhost:8080/movies/${id}`)
+
+    if (!response.ok) {
+      throw new Error('Unable to load movie.')
+    }
 
     // Convert the response into JSON data
     let data = await response.json()
 
     // Store the movie data in state
     setMovie(data)
+
+  } catch (error) {
+      setError(error.message)
+    }
   }
 
   // Function to get reviews for the movie
   async function getReviews() {
 
+    try {
     // Send a GET request for all reviews
     let response = await fetch('http://localhost:8080/reviews')
+
+    if (!response.ok) {
+      throw new Error('Unable to load reviews.')
+    }
 
     // Convert the response into JSON data
     let data = await response.json()
@@ -49,12 +66,17 @@ function MovieDetail() {
 
     // Store the reviews in state
     setReviews(movieReviews)
+
+  } catch (error) {
+    setError(error.message)
+  }
 }
 
   // Function to add a new review
   async function addReview(review) {
 
-      // Send the new review to the Review API
+    try {
+    // Send the new review to the Review API
       let response = await fetch('http://localhost:8080/reviews', {
 
       // Use POST to create the review
@@ -71,26 +93,40 @@ function MovieDetail() {
 
       // Check if the review was added successfully
       if (!response.ok) {
-        throw new Error('Review could not be added')
+        throw new Error('Review could not be added.')
       }
 
       // Get the updated reviews after adding the review
       await getReviews()
+
+    } catch (error) {
+      setError(error.message)
+      throw error
+      }
     }
 
     // Function to delete an existing review
     async function deleteReview(id) {
 
+      try {
       // Send a DELETE request to the Review API
-      await fetch(`http://localhost:8080/reviews/${id}`, {
+      let response = await fetch(`http://localhost:8080/reviews/${id}`, {
 
       // Use DELETE to remove the review
       method: 'DELETE'
     })
 
+      if (!response.ok) {
+        throw new Error('Review could not be deleted.')
+      }
+
     // Get the updated reviews after deleting the review
     await getReviews()
-  } 
+  
+    } catch (error) {
+    setError(error.message)
+    } 
+  }
 
   // Get the movie and reviews when the component loads
   useEffect(() => {
@@ -100,12 +136,19 @@ function MovieDetail() {
 
   // Display a message while the movie is loading
   if (!movie) {
-    return <p>Loading movie...</p>
+    if (error) {
+      return <p className="movie-form-message">{error}</p>
+    }
+      return <p>Loading movie...</p>
   }
 
   // Display the movie details
   return (
   <div className="movie-detail-page">
+
+    {error && (
+      <p className="movie-form-message">{error}</p>
+    )}
 
     {/* Left side: movie information */}
     <section className="movie-information">

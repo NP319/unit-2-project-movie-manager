@@ -26,27 +26,52 @@ function MovieList() {
   // Function to get all movies from the Spring Boot API
   async function getMovies() {
 
-    // Send a GET request to the Movie API
-    let response = await fetch('http://localhost:8080/movies')
+    try {
 
-    // Convert the response into JSON data
-    let data = await response.json()
+      // Send a GET request to the Movie API
+      let response = await fetch('http://localhost:8080/movies')
 
-    // Store the movie data in state
-    setMovies(data)
+      //Check if the request was successful
+      if (!response.ok) {
+        throw new Error('Unable to load movies.')
+      }
+
+      // Convert the response into JSON data
+      let data = await response.json()
+
+      // Store the movie data in state
+      setMovies(data)
+    
+    } catch (error) {
+
+      // Show an error message if the request fails
+      setError(error.message)
+    }
   }
 
   // Function to get the total number of movies
   async function getMovieCount() {
 
-    // Send a GET request to the Movie Count API
-    let response = await fetch('http://localhost:8080/movies/count')
+    try {
 
-    // Convert the response into a number
-    let data = await response.json()
+      // Send a GET request to the Movie Count API
+      let response = await fetch('http://localhost:8080/movies/count')
 
-    // Store the movie count in state
-    setMovieCount(data)
+      // Check if the request was successful
+      if (!response.ok) {
+        throw new Error('Unable to load movie count.')
+      }
+
+      // Convert the response into a number
+      let data = await response.json()
+
+      // Store the movie count in state
+      setMovieCount(data)
+
+    } catch (error) {
+      // Show an error message if the request fails
+      setError(error.message)
+    }
   }
 
   // Get the movies and movie count when the component loads
@@ -112,6 +137,7 @@ function MovieList() {
   setError('')
   setSuccess('')
 
+  try {
     // Send the new movie to the Spring Boot API
     let response = await fetch('http://localhost:8080/movies', {  
 
@@ -128,9 +154,11 @@ function MovieList() {
     })
 
     // Check if the movie was added successfully
-    if (response.ok) {
-    setSuccess('Movie added successfully!')
+    if (!response.ok) {
+      throw new Error('Unable to add movie')
     }
+
+    setSuccess('Movie added successfully!')
 
     // Get the updated movie list after adding the movie
     getMovies()
@@ -145,6 +173,12 @@ function MovieList() {
       director: '',
       releaseYear: ''
     })
+
+  } catch (error) {
+    setError(error.message)
+    setSuccess('')
+
+    }
   }
 
   // Function to update an existing movie
@@ -153,8 +187,13 @@ function MovieList() {
     // Prevent the form from refreshing the page
     event.preventDefault()
 
+    setError('')
+    setSuccess('')
+
+    try {
+
     // Send the updated movie to the Spring Boot API
-    await fetch(`http://localhost:8080/movies/${editingMovie.id}`, {
+    let response = await fetch(`http://localhost:8080/movies/${editingMovie.id}`, {
 
       // Use PUT to update the movie
       method: 'PUT',
@@ -168,29 +207,54 @@ function MovieList() {
       body: JSON.stringify(editingMovie)
     })
 
+    if (!response.ok) {
+      throw new Error('Unable to update movie.')
+    }
+
+    setSuccess('Movie updated successfully!')
+
     // Get the updated movie list
     getMovies()
 
     // Close the Edit Movie form
     setEditingMovie(null)
+
+  } catch (error) {
+      setError(error.message)
   }
+}
 
   // Function to delete an existing movie
   async function deleteMovie(id) {
 
+    setError('')
+    setSuccess('')
+
+    try {
+
     // Send a DELETE request to the Movie API
-    await fetch(`http://localhost:8080/movies/${id}`, {
+    let response = await fetch(`http://localhost:8080/movies/${id}`, {
 
       // Use DELETE to remove the movie
       method: 'DELETE'
     })
+
+    if (!response.ok) {
+      throw new Error('Unable to delete movie.')
+    }
+
+    setSuccess('Movie deleted successfully!')
 
     // Get the updated movie list after deleting the movie
     getMovies()
 
     // Get the updated movie list after deleting the movie
     getMovieCount()
+  
+  } catch (error) {
+    setError(error.message)
   }
+}
 
     // Display the Movie List page
   return (

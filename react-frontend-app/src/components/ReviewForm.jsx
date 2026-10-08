@@ -55,10 +55,11 @@ function ReviewForm({ movie, addReview }) {
     setError('')
 
     // Send the review information to the parent component
-    await addReview({
-      rating: rating,
-      comment: review.comment,
-      movie: movie   
+    try {
+      await addReview({
+        rating: rating,
+        comment: review.comment,
+        movie: movie   
     })
 
     // Show a success message after the review is submitted
@@ -69,6 +70,10 @@ function ReviewForm({ movie, addReview }) {
       rating: '',
       comment: ''
     })
+
+    } catch (error) {
+      setError(error.message)
+    }
   }
 
   // Display the Review form
